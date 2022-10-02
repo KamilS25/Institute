@@ -1,4 +1,4 @@
-package PR1;
+package ru.mirea.PR1;
 import java.util.Scanner;
 
 public class Three {

@@ -1,4 +1,4 @@
-package PR1;
+package ru.mirea.PR1;
 
 public class Six {
     public static void main(String[] args){

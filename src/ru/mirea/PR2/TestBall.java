@@ -1,4 +1,4 @@
-package PR2;
+package ru.mirea.PR2;
 
 public class TestBall {
     public static void main(String[] args){

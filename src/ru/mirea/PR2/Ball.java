@@ -1,4 +1,4 @@
-package PR2;
+package ru.mirea.PR2;
 
 public class Ball {
     double x = 0.0, y = 0.0;

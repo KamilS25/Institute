@@ -1,4 +1,4 @@
-package PR2;
+package ru.mirea.PR2;
 
 import java.util.Scanner;
 import java.util.Random;
