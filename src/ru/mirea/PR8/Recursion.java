@@ -200,10 +200,66 @@ public class Recursion {
         }
     }
 
-    
+    public static String numbersLeft(int a){
+
+        if (a<10){
+            return Integer.toString(a);
+        }
+        else {
+            return numbersLeft(a / 10) + " " + a % 10;
+        }
+    }
+
+    public static int numbersRight(int a){
+
+        if (a<10){
+            return a;
+        }
+        else{
+            System.out.print(a%10 + " ");
+            return numbersRight(a/10);
+        }
+    }
+
+    public static void maxNumberCount(int max, int count){
+        Scanner scan = new Scanner(System.in);
+         int a = scan.nextInt();
+
+         if (a > 0){
+             if (a > max){
+                 maxNumberCount(a, 1);
+             }
+             else if (a == max){
+                 maxNumberCount(a, ++count);
+             }
+             else{
+                 maxNumberCount(max, count);
+             }
+         }
+         else{
+             System.out.println(count);
+         }
+
+    }
+
+    public static int maxNumb() {
+
+        Scanner scan = new Scanner(System.in);
+
+        int a = scan.nextInt();
+
+        if (a == 0) {
+            return 0;
+        }
+        else {
+            return Math.max(a, maxNumb());
+        }
+    }
+
+
 
     public static void main(String[] args) {
-        /*System.out.println(triangleSequence(7));
+        System.out.println(triangleSequence(7));
         OneToN(7);
         System.out.println();
         System.out.println(AtoB(9, 3));
@@ -219,6 +275,11 @@ public class Recursion {
         oddNumb();
         System.out.println();
         oddIndNumber();
-        System.out.println();*/
+        System.out.println();
+        System.out.println(numbersLeft(123));
+        System.out.println(numbersRight(123));
+        maxNumberCount(0,0);
+        System.out.println();
+        System.out.println(maxNumb());
     }
 }
