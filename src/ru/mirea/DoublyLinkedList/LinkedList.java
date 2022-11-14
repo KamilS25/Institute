@@ -1,6 +1,6 @@
 package ru.mirea.DoublyLinkedList;
 
-public class LinkedList<T> {
+public class LinkedList<T>{
 
     private Node<T> head;
     private Node<T> tail;
@@ -66,6 +66,8 @@ public class LinkedList<T> {
         head.prev = current;
         current.next = head;
         head = current;
+        tail.next = head;
+        head.prev = tail;
         length++;
     }
 
@@ -81,6 +83,8 @@ public class LinkedList<T> {
         tail.next = current;
         current.prev = tail;
         tail = current;
+        tail.next = head;
+        head.prev = tail;
         length++;
     }
 
@@ -113,13 +117,71 @@ public class LinkedList<T> {
         length++;
     }
 
+    public void removeLast(){
+        head.prev = tail.prev;
+        tail.prev = tail.next;
+        length--;
+    }
+
+    public void removeFirst(){
+        Node<T> current = head.next;
+        tail.next = current;
+        current.prev = tail;
+        head = current;
+
+        length--;
+    }
+
+    public void removeAtInd(int index){
+        if (index > length - 1 | index < 0 ){
+            System.out.println("Input index exceeds array bounds!");
+            return;
+        }
+
+        if (index == length - 1){
+            removeLast();
+            return;
+        }
+
+        if (index == 0){
+            removeFirst();
+            return;
+        }
+
+        Node<T> previous = getNode(index - 1);
+        Node<T> next = getNode(index + 1);
+
+        previous.next = next;
+        next.prev = previous;
+        length--;
+
+    }
+
+    /*public T sortList(){
+        for (int i = 0; i < length; i++){
+            for (int j = 0; j < length; j++){
+                Node<T> current = getNode(i);
+                Node<T> next = getNode(i+1);
+
+                if (current.data.compareTo(next.data)){ ?????
+
+                }
+
+            }
+        }
+    }*/
+
     public void print(){
         Node<T> temp = head;
-
-        while(temp != null){
+        int count = length;
+        while(count > 0){
             System.out.print(temp.data + " -> ");
             temp = temp.next;
+            count--;
         }
     }
 
+    /*@Override
+    public int compareTo(T o, int i) {
+    }*/
 }
