@@ -2,10 +2,12 @@ package ru.mirea.PR27Hash;
 
 import java.util.Hashtable;
 
+
 public class HashTableTester {
 
     public static void main(String[] args) {
         Hashtable<Integer, Student> table = new Hashtable<>();
+
         Dictionary dict = new Dictionary();
         Student st1 = new Student("Ivan Ivanov", "547-21");
         Student st2 = new Student("Danil Petrov", "651-10");
